@@ -1,1 +1,51 @@
 @import "tailwindcss";
+@import "@fortawesome/fontawesome-free";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.dark {
+    --background-color: hsl(235, 25%, 10%);
+    --background-color-secondary: hsl(235, 25%, 9.2%);
+    --active-background-color: hsl(235, 25%, 15%);
+    --border-color: hsl(0, 0%, 20%);
+    --font-color: hsl(235, 35%, 75%);
+    --font-color-secondary: hsl(235, 35%, 55%);
+    --shadow-color: rgba(30, 30, 30, 0.1);
+}
+
+.light {
+    --background-color: hsl(0, 0%, 100%);
+    --background-color-secondary: hsl(0, 0%, 97%);
+    --active-background-color: hsl(235, 20%, 93%);
+    --border-color: hsl(0, 0%, 85%);
+    --font-color: hsl(0, 0%, 10%);
+    --font-color-secondary: hsl(235, 50%, 40%);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+@theme inline {
+    --font-sans: 'Open Sans Variable', 'sans-serif';
+    --font-mono: 'JetBrains Mono Variable', monospace;
+
+    --color-background: var(--background-color);
+    --color-background-secondary: var(--background-color-secondary);
+    --color-background-active: var(--active-background-color);
+    --color-border: var(--border-color);
+    --color-font: var(--font-color);
+    --color-font-secondary: var(--font-color-secondary);
+    --color-shadow: var(--shadow-color);
+
+    --radius-theme: 5px;
+}
+
+@layer base {
+    html {
+        @apply bg-background text-font scroll-smooth antialiased;
+    }
+}
+
+@layer components {
+    .header-button {
+        @apply flex justify-center items-center w-7 h-7 box-border border border-border rounded-theme no-underline transition-colors duration-200 ease-in hover:bg-background-active hover:cursor-pointer;
+    }
+}

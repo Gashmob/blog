@@ -1,0 +1,46 @@
+---
+export interface Props {
+    title?: string;
+    description?: string;
+    author?: string;
+    date?: Date;
+}
+
+import "@fontsource-variable/open-sans";
+import "@fontsource-variable/jetbrains-mono";
+
+import Seo from "../components/Seo.astro";
+import HeaderBar from "../components/HeaderBar.vue";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+const { title, description, author, date } = Astro.props;
+const rss_url = new URL("rss.xml", Astro.site).href;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="generator" content={Astro.generator}/>
+
+    <Seo {title} {description} {author} {date}/>
+
+    <link rel="icon" href="/favicon.ico"/>
+
+    <script is:inline>
+        const saved = localStorage.getItem("theme");
+        const prefers_dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.classList.add(saved || (prefers_dark ? "dark" : "light"));
+    </script>
+</head>
+<body class="flex flex-col items-center w-full">
+<HeaderBar rss_url={rss_url}/>
+<main class="w-1/2 pt-26">
+    <slot/>
+</main>
+<Footer/>
+</body>
+</html>
