@@ -1,7 +1,7 @@
 <template>
     <header
         class="fixed top-0 left-0 w-screen py-3 flex justify-evenly items-center z-50 backdrop-blur-xs shadow-xs shadow-shadow">
-        <a href="/" class="flex gap-6 no-underline">
+        <a href="/" class="flex items-center gap-6 no-underline">
             <img src="/logo.png" alt="Kevin" class="w-7 h-7"/>
             <h1 class="text-2xl font-bold">Keblo?</h1>
         </a>

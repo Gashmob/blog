@@ -1,6 +1,6 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import type { BlogEntry } from "../content.config";
+import type { PostEntry } from "../content.config";
 import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
@@ -10,18 +10,18 @@ export async function GET(context: APIContext) {
         });
     }
 
-    const blogs: BlogEntry[] = await getCollection("blogs");
+    const posts: PostEntry[] = await getCollection("posts");
     return rss({
         title: "Keblo?",
-        description: "A collection of blog article",
+        description: "A collection of blog posts from Kevin Traini",
         site: context.site,
         trailingSlash: false,
-        items: blogs.map((blog: BlogEntry) => ({
-            title: blog.data.title,
-            description: blog.data.description,
-            pubDate: blog.data.date,
-            author: blog.data.author,
-            link: `/${blog.data.slug}`,
+        items: posts.map((post: PostEntry) => ({
+            title: post.data.title,
+            description: post.data.description,
+            pubDate: post.data.date,
+            author: post.data.author,
+            link: `/${post.data.slug}`,
         })),
     });
 }

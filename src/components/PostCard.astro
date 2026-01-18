@@ -1,0 +1,13 @@
+---
+export interface Props {
+    post: PostEntry,
+}
+
+import type { PostEntry } from "../content.config.ts";
+
+const { post } = Astro.props;
+---
+
+<a href={`/${post.data.slug}`}>
+    {post.data.title}
+</a>
