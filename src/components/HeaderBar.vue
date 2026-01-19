@@ -6,7 +6,7 @@
             <h1 class="text-2xl font-bold">Keblo?</h1>
         </a>
         <div class="flex gap-2">
-            <a v-bind:href="rss_url" title="RSS" class="header-button">
+            <a v-bind:href="rss_url" title="RSS" aria-label="RSS" class="header-button">
                 <i class="fa-solid fa-rss"></i>
             </a>
             <button v-on:click="handleSwitchThemeClick" title="Switch theme" class="header-button">
@@ -41,6 +41,7 @@ onMounted(() => {
 function refreshTheme(): void {
     const saved = localStorage.getItem("theme");
     const prefers_dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.className = "";
     document.documentElement.classList.add(saved || (prefers_dark ? "dark" : "light"));
 }
 
@@ -49,14 +50,17 @@ function handleSwitchThemeClick(): void {
     switch (saved) {
         case "light":
             localStorage.theme = "dark";
+            switch_theme_button_icon.value?.classList.remove("fa-sun");
             switch_theme_button_icon.value?.classList.add("fa-moon");
             break;
         case "dark":
             localStorage.removeItem("theme");
+            switch_theme_button_icon.value?.classList.remove("fa-moon");
             switch_theme_button_icon.value?.classList.add("fa-display");
             break;
         default:
             localStorage.theme = "light";
+            switch_theme_button_icon.value?.classList.remove("fa-display");
             switch_theme_button_icon.value?.classList.add("fa-sun");
             break;
     }

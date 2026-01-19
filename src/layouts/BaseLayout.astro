@@ -15,7 +15,7 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
 const { title, description, author, date } = Astro.props;
-const rss_url = new URL("rss.xml", Astro.site).href;
+const rss_url = new URL("rss.xml", Astro.url).href;
 ---
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ const rss_url = new URL("rss.xml", Astro.site).href;
     </script>
 </head>
 <body class="flex flex-col items-center w-full">
-<HeaderBar rss_url={rss_url}/>
+<HeaderBar rss_url={rss_url} client:only="vue"/>
 <main class="w-1/2 pt-26">
     <slot/>
 </main>

@@ -8,9 +8,9 @@ import vue from '@astrojs/vue';
 export default defineConfig({
     site: "https://blog.ktraini.com",
     vite: {
-        plugins: [tailwindcss()]
+        plugins: [tailwindcss()],
     },
-    integrations: [sitemap(), vue()],
+    integrations: [sitemap(), vue({devtools: true})],
     security: {
         checkOrigin: true,
     },
