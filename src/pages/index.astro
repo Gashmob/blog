@@ -1,4 +1,22 @@
 ---
+/**
+    * Keblo?
+    * Copyright (C) 2026-Present  Kevin Traini
+    *
+    * This program is free software; you can redistribute it and/or modify
+    * it under the terms of the GNU General Public License as published by
+    * the Free Software Foundation; either version 2 of the License, or
+    * (at your option) any later version.
+    *
+    * This program is distributed in the hope that it will be useful,
+    * but WITHOUT ANY WARRANTY; without even the implied warranty of
+    * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    * GNU General Public License for more details.
+    *
+    * You should have received a copy of the GNU General Public License along
+    * with this program; if not, write to the Free Software Foundation, Inc.,
+    * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+    */
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import type { PostEntry } from "../content.config.ts";
@@ -25,11 +43,17 @@ const recent_posts: PostEntry[] = posts.sort(
                 )
             }
             <div class="flex justify-center items-center">
-                <p class="text-lg">See more</p>
                 <a
-                    class="size-10 flex justify-center items-center ml-2 p-1 bg-background border border-border rounded-full shadow shadow-shadow transition-colors hover:bg-background-active"
+                    class="flex justify-center items-center"
+                    title="See more"
                     href={new URL("posts", Astro.url)}>
-                    <i class="fa-solid fa-chevron-right"></i>
+                    <p class="text-lg flex items-center group">
+                        See more
+                        <span
+                            class="flex justify-center items-center ml-2 size-10 bg-background border border-border rounded-full shadow shadow-shadow transition-colors group-hover:bg-background-active">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </span>
+                    </p>
                 </a>
             </div>
         </div>

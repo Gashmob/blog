@@ -1,5 +1,6 @@
 {
   "name": "@gashmob/blog",
+  "license": "GPL-2.0-or-later",
   "private": true,
   "type": "module",
   "scripts": {
