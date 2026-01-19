@@ -12,18 +12,26 @@ const recent_posts: PostEntry[] = posts.sort(
 
 <BaseLayout>
     <div class="h-150 flex flex-col justify-center px-10">
-        <h1 class="text-8xl font-bold">Keblo?</h1>
-        <h2 class="text-2xl font-bold text-font-secondary">A collection of blog posts from Kevin Traini</h2>
+        <h1 class="text-9xl font-bold">Keblo?</h1>
+        <h2 class="text-3xl font-bold text-font-secondary">A collection of blog posts from Kevin Traini</h2>
     </div>
     <div class="py-10">
-        <h3 class="text-xl font-bold pb-5">Recent posts</h3>
-        <div class="flex">
+        <h3 class="text-2xl font-bold pb-5">Recent posts</h3>
+        <div class="w-full grid grid-cols-2 gap-3">
             {
                 recent_posts.map(
                     (post: PostEntry) =>
-                        <PostCard {post}/>,
+                        <PostCard post={post}/>,
                 )
             }
+            <div class="flex justify-center items-center">
+                <p class="text-lg">See more</p>
+                <a
+                    class="size-10 flex justify-center items-center ml-2 p-1 bg-background border border-border rounded-full shadow shadow-shadow transition-colors hover:bg-background-active"
+                    href={new URL("posts", Astro.url)}>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
         </div>
     </div>
 </BaseLayout>

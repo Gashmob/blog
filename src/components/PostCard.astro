@@ -8,6 +8,48 @@ import type { PostEntry } from "../content.config.ts";
 const { post } = Astro.props;
 ---
 
-<a href={`/${post.data.slug}`}>
-    {post.data.title}
+<a
+    href={`/post/${post.data.slug}`}
+    class="hover:bg-background-active hover:ring-font-secondary group ring-border animation flex h-full flex-col gap-3 rounded-lg pb-3 shadow-md shadow-shadow ring-2 select-none hover:shadow-none active:ring-0"
+>
+    <div class="mx-4 mt-2 flex justify-between gap-6">
+        <h3
+            class="group-hover:text-font-secondary animation animation self-start rounded-lg text-xl opacity-90 group-hover:font-semibold group-hover:tracking-wide"
+        >
+            {post.data.title}
+        </h3>
+        <div class="mt-1 flex">
+            <div class="hidden group-hover:block">
+                <i class="fa-solid fa-arrow-right text-font-secondary"></i>
+            </div>
+            <div class="group-hover:hidden">
+                <i class="fa-solid fa-chevron-right animation"></i>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="mx-4 flex flex-wrap gap-6 opacity-80 group-hover:mb-0">
+            <div class="flex gap-1 font-mono group-hover:hidden">
+                <i
+                    class="fa-solid fa-calendar-days animation size-4 translate-y-px"
+                ></i>
+                <p class="animation text-sm">
+                    {post.data.date.toLocaleDateString("en", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric",
+                    })}
+                </p>
+            </div>
+        </div>
+        <div class="mx-3 flex-wrap hidden group-hover:flex">
+            {
+                post.data.tags.map((tag: string) => (
+                    <p class="ring-font bg-background animation mx-1 rounded-lg px-3 pb-0.5 opacity-90 text-sm">
+                        {tag}
+                    </p>
+                ))
+            }
+        </div>
+    </div>
 </a>

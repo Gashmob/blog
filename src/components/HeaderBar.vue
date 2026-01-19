@@ -30,8 +30,7 @@ onMounted(() => {
         return;
     }
 
-    const prefers_dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (prefers_dark) {
+    if (saved === "dark") {
         switch_theme_button_icon.value?.classList.add("fa-moon");
     } else {
         switch_theme_button_icon.value?.classList.add("fa-sun");
