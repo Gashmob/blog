@@ -19,6 +19,7 @@
 
 @import "tailwindcss";
 @import "@fortawesome/fontawesome-free";
+@import "./typography.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 

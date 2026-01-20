@@ -32,4 +32,12 @@ export default defineConfig({
     security: {
         checkOrigin: true,
     },
+    markdown: {
+        shikiConfig: {
+            defaultColor: false,
+            theme: "catppuccin-mocha",
+            wrap: false,
+        },
+    },
+    output: "static",
 });

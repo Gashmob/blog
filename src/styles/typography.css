@@ -1,0 +1,103 @@
+@layer base {
+    .markdown {
+        h2 {
+            @apply pt-13 pb-3 text-4xl;
+            a {
+                @apply text-font no-underline hover:no-underline hover:text-font-secondary hover:after:content-['§'] hover:after:ml-2;
+            }
+        }
+        h3 {
+            @apply pt-8 pb-2 text-3xl;
+            a {
+                @apply text-font no-underline hover:no-underline hover:text-font-secondary hover:after:content-['§'] hover:after:ml-2;
+            }
+        }
+        h4 {
+            @apply pt-6 pb-2 text-2xl;
+            a {
+                @apply text-font no-underline hover:no-underline hover:text-font-secondary hover:after:content-['§'] hover:after:ml-2;
+            }
+        }
+        h5 {
+            @apply pt-3 pb-1 text-xl;
+            a {
+                @apply text-font no-underline hover:no-underline hover:text-font-secondary hover:after:content-['§'] hover:after:ml-2;
+            }
+        }
+
+        p {
+            @apply text-lg leading-relaxed;
+        }
+
+        a {
+            @apply text-font-secondary active:text-font decoration-dashed underline-offset-3 transition-all duration-150 ease-in-out hover:underline hover:underline-offset-6;
+        }
+
+        blockquote {
+            @apply bg-background-secondary my-3 px-6 py-3 border-l-4 border-border rounded-r-md;
+        }
+
+        strong {
+            @apply text-lg leading-relaxed font-bold;
+        }
+
+        em {
+            @apply text-lg leading-relaxed;
+        }
+
+        kbd {
+            @apply rounded-md bg-background-secondary px-2 py-0.5 font-mono text-base ring-1 ring-font;
+        }
+
+        .astro-code {
+            @apply my-6 p-6 rounded-md;
+        }
+        .astro-code code {
+            @apply bg-inherit p-0 font-medium;
+        }
+        code {
+            @apply bg-background-secondary text-font rounded-md px-2 py-0.5 font-mono text-base leading-relaxed;
+        }
+
+        ol {
+            @apply list-decimal space-y-1 px-8 py-1;
+        }
+        ul {
+            @apply list-disc space-y-1 px-8 py-1;
+        }
+        li {
+            @apply px-1 text-lg leading-relaxed;
+        }
+
+        dl {
+            @apply visible;
+        }
+        dt {
+            @apply visible;
+        }
+        dd {
+            @apply visible;
+        }
+
+        table {
+            @apply mx-auto my-8 w-full;
+        }
+        tr {
+            @apply visible;
+        }
+        th {
+            @apply bg-font/8 px-3 py-1 text-center text-lg ring-font/18 ring-1;
+        }
+        td {
+            @apply px-3 py-1 ring-font/18 ring-1;
+        }
+
+        img {
+            @apply mx-auto my-8;
+        }
+
+        hr {
+            @apply border-border mx-13 mt-13 mb-3;
+        }
+    }
+}

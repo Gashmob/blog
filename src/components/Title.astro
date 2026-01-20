@@ -1,0 +1,29 @@
+---
+import type { PostEntry } from "../content.config.ts";
+import { sprintf } from "sprintf-js";
+
+export interface Props {
+    post: PostEntry;
+}
+
+const { post } = Astro.props;
+
+const formatted_date = sprintf("%4d-%02d-%02d", post.data.date.getFullYear(), post.data.date.getMonth() + 1, post.data.date.getDate());
+---
+
+<div class="mx-3 font-mono">
+    <h1 class="text-6xl mb-8">{post.data.title}</h1>
+    <p class="mb-2">
+        <i class="fa-solid fa-calendar-days animation size-4 translate-y-px"></i>
+        <span>{formatted_date}</span>
+    </p>
+    <p>
+        <i class="fa-solid fa-tag"></i>
+        <span class="inline-flex gap-3">
+            {post.data.tags.map((tag) => (<span class="hover:text-font-secondary hover:cursor-default">{tag}</span>))}
+        </span>
+    </p>
+    <div class="my-10 flex justify-center">
+        <div class="border-b-2 border-border w-4/5"></div>
+    </div>
+</div>
