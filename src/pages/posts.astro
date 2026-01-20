@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import type { PostEntry } from "../content.config.ts";
+import PostCard from "../components/PostCard.astro";
+
+const posts: PostEntry[] = (await getCollection("posts")).sort(
+    (a: PostEntry, b: PostEntry) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<BaseLayout>
+    <h1 class="text-4xl">All the posts</h1>
+    <div class="my-8 border-t-2 border-border"></div>
+    <div class="grid grid-cols-2 gap-5 mb-10">
+        {posts.map((post) => (
+            <PostCard post={post}/>
+        ))}
+    </div>
+</BaseLayout>

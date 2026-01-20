@@ -23,8 +23,11 @@ export interface Props {
 }
 
 import type { PostEntry } from "../content.config.ts";
+import { sprintf } from "sprintf-js";
 
 const { post } = Astro.props;
+
+const formatted_date = sprintf("%4d-%02d-%02d", post.data.date.getFullYear(), post.data.date.getMonth() + 1, post.data.date.getDate());
 ---
 
 <a
@@ -46,6 +49,9 @@ const { post } = Astro.props;
             </div>
         </div>
     </div>
+    <div class="mx-4">
+        <p class="text-sm">{post.data.description}</p>
+    </div>
     <div>
         <div class="mx-4 flex flex-wrap gap-6 opacity-80 group-hover:mb-0">
             <div class="flex gap-1 font-mono group-hover:hidden">
@@ -53,11 +59,7 @@ const { post } = Astro.props;
                     class="fa-solid fa-calendar-days animation size-4 translate-y-px"
                 ></i>
                 <p class="animation text-sm">
-                    {post.data.date.toLocaleDateString("en", {
-                        day: "numeric",
-                        month: "short",
-                        year: "numeric",
-                    })}
+                    {formatted_date}
                 </p>
             </div>
         </div>
