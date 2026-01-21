@@ -2,7 +2,7 @@
 slug: welcome
 title: "Welcome!"
 description: "The first post of this blog. I present myself and the goal of this blog"
-date: 2026-01-21
+date: 2026-01-24
 author: "Kevin Traini"
 tags: ["meta"]
 ---
