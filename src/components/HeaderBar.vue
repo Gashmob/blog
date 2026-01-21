@@ -23,7 +23,7 @@
     >
         <a href="/" class="flex items-center gap-6 no-underline">
             <img src="/logo.png" alt="Kevin" class="size-7" />
-            <h1 class="text-2xl font-bold">Keblo?</h1>
+            <h1 class="hidden text-2xl font-bold lg:block">Keblo?</h1>
         </a>
         <div class="flex gap-2">
             <a v-bind:href="rss_url" title="RSS" aria-label="RSS" class="header-button">

@@ -11,13 +11,13 @@ const recent_posts: PostEntry[] = posts
 ---
 
 <BaseLayout>
-    <div class="flex h-150 flex-col justify-center px-10">
-        <h1 class="text-9xl font-bold">Keblo?</h1>
-        <h2 class="text-font-secondary text-3xl font-bold">A collection of blog posts from Kevin Traini</h2>
+    <div class="flex h-60 flex-col justify-center px-5 lg:h-150 lg:px-10">
+        <h1 class="text-7xl font-bold lg:text-9xl">Keblo?</h1>
+        <h2 class="text-font-secondary text-xl font-bold lg:text-3xl">A collection of blog posts from Kevin Traini</h2>
     </div>
     <div class="py-10">
         <h3 class="pb-5 text-2xl font-bold">Recent posts</h3>
-        <div class="grid w-full grid-cols-2 gap-3">
+        <div class="grid w-full grid-cols-1 gap-3 lg:grid-cols-2">
             {recent_posts.map((post: PostEntry) => <PostCard post={post} />)}
             <div class="flex items-center justify-center">
                 <a class="flex items-center justify-center" title="See more" href={new URL("posts", Astro.url)}>

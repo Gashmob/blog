@@ -23,7 +23,7 @@ const rss_url = new URL("rss.xml", Astro.url).href;
     <head>
         <meta charset="UTF-8" />
 
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content={Astro.generator} />
 
         <Seo {title} {description} {author} {date} />
@@ -38,7 +38,7 @@ const rss_url = new URL("rss.xml", Astro.url).href;
     </head>
     <body class="flex w-full flex-col items-center">
         <HeaderBar rss_url={rss_url} client:only="vue" />
-        <main class="w-1/2 pt-26">
+        <main class="w-full px-5 pt-20 lg:w-1/2 lg:py-0 lg:pt-26">
             <slot />
         </main>
         <Footer />

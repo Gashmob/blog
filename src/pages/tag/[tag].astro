@@ -46,7 +46,7 @@ const { tag, posts } = Astro.props;
     <div class="my-8 flex justify-center">
         <div class="border-border w-4/5 border-b-2"></div>
     </div>
-    <div class="mb-10 grid grid-cols-2 gap-5">
+    <div class="mb-10 grid grid-cols-1 gap-5 lg:grid-cols-2">
         {posts.map((post) => <PostCard post={post} />)}
     </div>
 </BaseLayout>
