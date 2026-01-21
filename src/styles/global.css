@@ -44,8 +44,8 @@
 }
 
 @theme inline {
-    --font-sans: 'Open Sans Variable', 'sans-serif';
-    --font-mono: 'JetBrains Mono Variable', monospace;
+    --font-sans: "Open Sans Variable", "sans-serif";
+    --font-mono: "JetBrains Mono Variable", monospace;
 
     --color-background: var(--background-color);
     --color-background-secondary: var(--background-color-secondary);
@@ -66,6 +66,6 @@
 
 @layer components {
     .header-button {
-        @apply flex justify-center items-center w-7 h-7 box-border border border-border rounded-theme no-underline transition-colors duration-200 ease-in hover:bg-background-active hover:cursor-pointer;
+        @apply border-border rounded-theme hover:bg-background-active box-border flex h-7 w-7 items-center justify-center border no-underline transition-colors duration-200 ease-in hover:cursor-pointer;
     }
 }

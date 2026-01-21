@@ -8,5 +8,8 @@ indent_style = space
 insert_final_newline = true
 max_line_length = 120
 
-[*.json]
+[*.{json,yml}]
+indent_size = 2
+
+[.prettierrc]
 indent_size = 2

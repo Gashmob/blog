@@ -4,7 +4,7 @@ title: "Dummy post 1"
 description: "Destined to be deleted, here only for testing. But for this one the description may be a bit long"
 date: 2026-01-18
 author: "Kevin Traini"
-tags: [ "test", "example" ]
+tags: ["test", "example"]
 ---
 
 ## [Introduction](#introduction)
@@ -80,7 +80,6 @@ _lorem ipsum dolor sit amet, consectetur adipiscing elit._
     - Child item
         - Grandchild item
 
-
 1. Parent item
     1. Child item
     2. Child item
@@ -97,7 +96,6 @@ console.log(greet("Developer"));
 ```
 
 ```html
-
 <div class="rounded-lg bg-white p-6 shadow">Hello World!</div>
 ```
 
@@ -126,9 +124,9 @@ lorem ipsum dolor sit amet, consectetur adipiscing elit. Below is a
   </tr>
 </table>
 
-| a | b |
-|:--|:--|
-| c | d |
+| a   | b   |
+| :-- | :-- |
+| c   | d   |
 
 ## [Images](#images)
 

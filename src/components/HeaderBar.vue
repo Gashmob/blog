@@ -19,9 +19,10 @@
 
 <template>
     <header
-        class="fixed top-0 left-0 w-screen py-3 flex justify-evenly items-center z-50 backdrop-blur-xs shadow-xs shadow-shadow">
+        class="shadow-shadow fixed top-0 left-0 z-50 flex w-screen items-center justify-evenly py-3 shadow-xs backdrop-blur-xs"
+    >
         <a href="/" class="flex items-center gap-6 no-underline">
-            <img src="/logo.png" alt="Kevin" class="w-7 h-7"/>
+            <img src="/logo.png" alt="Kevin" class="size-7" />
             <h1 class="text-2xl font-bold">Keblo?</h1>
         </a>
         <div class="flex gap-2">

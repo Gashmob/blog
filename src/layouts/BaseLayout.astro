@@ -18,29 +18,29 @@ const { title, description, author, date } = Astro.props;
 const rss_url = new URL("rss.xml", Astro.url).href;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
+    <head>
+        <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width"/>
-    <meta name="generator" content={Astro.generator}/>
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
 
-    <Seo {title} {description} {author} {date}/>
+        <Seo {title} {description} {author} {date} />
 
-    <link rel="icon" href="/favicon.ico"/>
+        <link rel="icon" href="/favicon.ico" />
 
-    <script is:inline>
-        const saved = localStorage.getItem("theme");
-        const prefers_dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.documentElement.classList.add(saved || (prefers_dark ? "dark" : "light"));
-    </script>
-</head>
-<body class="flex flex-col items-center w-full">
-<HeaderBar rss_url={rss_url} client:only="vue"/>
-<main class="w-1/2 pt-26">
-    <slot/>
-</main>
-<Footer/>
-</body>
+        <script is:inline>
+            const saved = localStorage.getItem("theme");
+            const prefers_dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.classList.add(saved || (prefers_dark ? "dark" : "light"));
+        </script>
+    </head>
+    <body class="flex w-full flex-col items-center">
+        <HeaderBar rss_url={rss_url} client:only="vue" />
+        <main class="w-1/2 pt-26">
+            <slot />
+        </main>
+        <Footer />
+    </body>
 </html>

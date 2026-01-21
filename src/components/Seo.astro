@@ -18,31 +18,25 @@ const {
 const canonical_url = new URL(Astro.url.pathname, Astro.url);
 ---
 
-<link rel="canonical" href={canonical_url}/>
+<link rel="canonical" href={canonical_url} />
 <title>{title}</title>
-<meta name="title" content={title}/>
-<meta name="description" content={description}/>
-<meta name="author" content={author}/>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="author" content={author} />
 
-<meta property="og:title" content={title}/>
-<meta property="og:description" content={description}/>
-<meta property="og:url" content={canonical_url}/>
-<meta property="og:type" content="website"/>
-<meta property="og:site_name" content={site_name}/>
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical_url} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={site_name} />
 
-<meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:url" content={canonical_url}/>
-<meta property="twitter:title" content={title}/>
-<meta property="twitter:description" content={description}/>
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonical_url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
 
-{date && (
-<meta property="article:published_time" content={date.toISOString()}/>)}
+{date && <meta property="article:published_time" content={date.toISOString()} />}
 
-<link rel="sitemap" href="/sitemap-index.xml"/>
+<link rel="sitemap" href="/sitemap-index.xml" />
 
-<link
-    rel="alternate"
-    type="application/rss+xml"
-    title={site_name}
-    href={new URL("rss.xml", Astro.site)}
-/>
+<link rel="alternate" type="application/rss+xml" title={site_name} href={new URL("rss.xml", Astro.site)} />

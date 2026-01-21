@@ -5,34 +5,27 @@ import type { PostEntry } from "../content.config.ts";
 import PostCard from "../components/PostCard.astro";
 
 const posts: PostEntry[] = await getCollection("posts");
-const recent_posts: PostEntry[] = posts.sort(
-    (a: PostEntry, b: PostEntry) => b.data.date.getTime() - a.data.date.getTime(),
-).slice(0, 3);
+const recent_posts: PostEntry[] = posts
+    .sort((a: PostEntry, b: PostEntry) => b.data.date.getTime() - a.data.date.getTime())
+    .slice(0, 3);
 ---
 
 <BaseLayout>
-    <div class="h-150 flex flex-col justify-center px-10">
+    <div class="flex h-150 flex-col justify-center px-10">
         <h1 class="text-9xl font-bold">Keblo?</h1>
-        <h2 class="text-3xl font-bold text-font-secondary">A collection of blog posts from Kevin Traini</h2>
+        <h2 class="text-font-secondary text-3xl font-bold">A collection of blog posts from Kevin Traini</h2>
     </div>
     <div class="py-10">
-        <h3 class="text-2xl font-bold pb-5">Recent posts</h3>
-        <div class="w-full grid grid-cols-2 gap-3">
-            {
-                recent_posts.map(
-                    (post: PostEntry) =>
-                        <PostCard post={post}/>,
-                )
-            }
-            <div class="flex justify-center items-center">
-                <a
-                    class="flex justify-center items-center"
-                    title="See more"
-                    href={new URL("posts", Astro.url)}>
-                    <p class="text-lg flex items-center group">
+        <h3 class="pb-5 text-2xl font-bold">Recent posts</h3>
+        <div class="grid w-full grid-cols-2 gap-3">
+            {recent_posts.map((post: PostEntry) => <PostCard post={post} />)}
+            <div class="flex items-center justify-center">
+                <a class="flex items-center justify-center" title="See more" href={new URL("posts", Astro.url)}>
+                    <p class="group flex items-center text-lg">
                         See more
                         <span
-                            class="flex justify-center items-center ml-2 size-10 bg-background border border-border rounded-full shadow shadow-shadow transition-colors group-hover:bg-background-active">
+                            class="bg-background border-border shadow-shadow group-hover:bg-background-active ml-2 flex size-10 items-center justify-center rounded-full border shadow transition-colors"
+                        >
                             <i class="fa-solid fa-chevron-right"></i>
                         </span>
                     </p>

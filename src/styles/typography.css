@@ -3,25 +3,25 @@
         h2 {
             @apply pt-13 pb-3 text-4xl;
             a {
-                @apply text-font no-underline hover:no-underline hover:text-font-secondary hover:after:content-['§'] hover:after:ml-2;
+                @apply text-font hover:text-font-secondary no-underline hover:no-underline hover:after:ml-2 hover:after:content-['§'];
             }
         }
         h3 {
             @apply pt-8 pb-2 text-3xl;
             a {
-                @apply text-font no-underline hover:no-underline hover:text-font-secondary hover:after:content-['§'] hover:after:ml-2;
+                @apply text-font hover:text-font-secondary no-underline hover:no-underline hover:after:ml-2 hover:after:content-['§'];
             }
         }
         h4 {
             @apply pt-6 pb-2 text-2xl;
             a {
-                @apply text-font no-underline hover:no-underline hover:text-font-secondary hover:after:content-['§'] hover:after:ml-2;
+                @apply text-font hover:text-font-secondary no-underline hover:no-underline hover:after:ml-2 hover:after:content-['§'];
             }
         }
         h5 {
             @apply pt-3 pb-1 text-xl;
             a {
-                @apply text-font no-underline hover:no-underline hover:text-font-secondary hover:after:content-['§'] hover:after:ml-2;
+                @apply text-font hover:text-font-secondary no-underline hover:no-underline hover:after:ml-2 hover:after:content-['§'];
             }
         }
 
@@ -34,7 +34,7 @@
         }
 
         blockquote {
-            @apply bg-background-secondary my-3 px-6 py-3 border-l-4 border-border rounded-r-md;
+            @apply bg-background-secondary border-border my-3 rounded-r-md border-l-4 px-6 py-3;
         }
 
         strong {
@@ -46,11 +46,11 @@
         }
 
         kbd {
-            @apply rounded-md bg-background-secondary px-2 py-0.5 font-mono text-base ring-1 ring-font;
+            @apply bg-background-secondary ring-font rounded-md px-2 py-0.5 font-mono text-base ring-1;
         }
 
         .astro-code {
-            @apply my-6 p-6 rounded-md;
+            @apply my-6 rounded-md p-6;
         }
         .astro-code code {
             @apply bg-inherit p-0 font-medium;
@@ -86,10 +86,10 @@
             @apply visible;
         }
         th {
-            @apply bg-font/8 px-3 py-1 text-center text-lg ring-font/18 ring-1;
+            @apply bg-font/8 ring-font/18 px-3 py-1 text-center text-lg ring-1;
         }
         td {
-            @apply px-3 py-1 ring-font/18 ring-1;
+            @apply ring-font/18 px-3 py-1 ring-1;
         }
 
         img {

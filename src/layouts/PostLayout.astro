@@ -1,27 +1,20 @@
 ---
-import BaseLayout from "./BaseLayout.astro"
+import BaseLayout from "./BaseLayout.astro";
 import Title from "../components/Title.astro";
 import type { PostEntry } from "../content.config.ts";
 
 export interface Props {
-    post: PostEntry
+    post: PostEntry;
 }
 
 const { post } = Astro.props;
 ---
 
-<BaseLayout
-    title={post.data.title}
-    description={post.data.description}
-    author={post.data.author}
-    date={post.data.date}
->
+<BaseLayout title={post.data.title} description={post.data.description} author={post.data.author} date={post.data.date}>
     <article>
-        <Title post={post}/>
-        <section class="mb-30 font-sans markdown">
-            <slot/>
+        <Title post={post} />
+        <section class="markdown mb-30 font-sans">
+            <slot />
         </section>
     </article>
 </BaseLayout>
-
-
