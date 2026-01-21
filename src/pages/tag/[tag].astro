@@ -1,0 +1,52 @@
+---
+import type { GetStaticPaths, GetStaticPathsResult } from "astro";
+import type { PostEntry } from "../../content.config.ts";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+
+export const getStaticPaths = (async () => {
+    const posts: PostEntry[] = await getCollection("posts");
+
+    const tags: Record<string, PostEntry[]> = {};
+    posts.forEach((post) => {
+        post.data.tags.forEach((tag) => {
+            if (!(tag in tags)) {
+                tags[tag] = [];
+            }
+            tags[tag].push(post);
+        });
+    });
+
+    const paths: GetStaticPathsResult = [];
+    for (const tag in tags) {
+        paths.push({
+            params: { tag },
+            props: { tag, posts: tags[tag] },
+        });
+    }
+
+    return paths;
+}) satisfies GetStaticPaths;
+
+export type Props = {
+    tag: string;
+    posts: PostEntry[];
+};
+
+const { tag, posts } = Astro.props;
+---
+
+<BaseLayout title={`Tag ${tag}`} description={`Posts with tag "${tag}"`}>
+    <h1 class="text-4xl">
+        All posts with tag
+        <span class="bg-background-secondary mx-1 rounded-lg px-3 pb-0.5">{tag}</span>
+        <small class="text-font-secondary text-2xl">({posts.length})</small>
+    </h1>
+    <div class="my-8 flex justify-center">
+        <div class="border-border w-4/5 border-b-2"></div>
+    </div>
+    <div class="mb-10 grid grid-cols-2 gap-5">
+        {posts.map((post) => <PostCard post={post} />)}
+    </div>
+</BaseLayout>

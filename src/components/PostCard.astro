@@ -50,9 +50,7 @@ const formatted_date = sprintf(
         <div class="mx-3 hidden flex-wrap group-hover:flex">
             {
                 post.data.tags.map((tag: string) => (
-                    <p class="ring-font bg-background animation mx-1 rounded-lg px-3 pb-0.5 text-sm opacity-90">
-                        {tag}
-                    </p>
+                    <p class="bg-background animation mx-1 rounded-lg px-3 pb-0.5 text-sm">{tag}</p>
                 ))
             }
         </div>

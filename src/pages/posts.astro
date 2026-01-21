@@ -11,7 +11,9 @@ const posts: PostEntry[] = (await getCollection("posts")).sort(
 
 <BaseLayout>
     <h1 class="text-4xl">All the posts</h1>
-    <div class="border-border my-8 border-t-2"></div>
+    <div class="my-8 flex justify-center">
+        <div class="border-border w-4/5 border-b-2"></div>
+    </div>
     <div class="mb-10 grid grid-cols-2 gap-5">
         {posts.map((post) => <PostCard post={post} />)}
     </div>
