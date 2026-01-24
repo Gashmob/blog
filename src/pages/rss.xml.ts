@@ -39,7 +39,7 @@ export async function GET(context: APIContext) {
             description: post.data.description,
             pubDate: post.data.date,
             author: post.data.author,
-            link: `/${post.data.slug}`,
+            link: `/post/${post.data.slug}`,
         })),
     });
 }
