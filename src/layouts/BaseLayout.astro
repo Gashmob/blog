@@ -15,7 +15,7 @@ export interface Props {
 }
 
 const { title, description, author, date } = Astro.props;
-const rss_url = new URL("rss.xml", Astro.url).href;
+const rss_url = new URL("rss.xml", Astro.site).href;
 ---
 
 <!doctype html>
