@@ -25,15 +25,20 @@ const canonical_url = new URL(Astro.url.pathname, Astro.url);
 <meta name="author" content={author} />
 
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:url" content={canonical_url} />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="/opengraph.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:alt" content={description} />
+<meta property="og:url" content={canonical_url} />
+<meta property="og:description" content={description} />
 <meta property="og:site_name" content={site_name} />
 
-<meta property="twitter:card" content="summary_large_image" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:domain" content={Astro.site} />
 <meta property="twitter:url" content={canonical_url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content="" />
 
 {date && <meta property="article:published_time" content={date.toISOString()} />}
 
