@@ -2,6 +2,7 @@
 import BaseLayout from "./BaseLayout.astro";
 import Title from "../components/Title.astro";
 import type { PostEntry } from "../content.config.ts";
+import ChapterPagination from "../components/ChapterPagination.astro";
 
 export interface Props {
     post: PostEntry;
@@ -16,5 +17,6 @@ const { post } = Astro.props;
         <section class="markdown mb-30 font-sans">
             <slot />
         </section>
+        {post.data.story !== undefined && <ChapterPagination post={post} />}
     </article>
 </BaseLayout>

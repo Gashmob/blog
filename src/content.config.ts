@@ -28,6 +28,7 @@ const posts = defineCollection({
         date: z.date(),
         author: z.string(),
         tags: z.array(z.string()),
+        story: z.optional(z.string()),
     }),
 });
 
