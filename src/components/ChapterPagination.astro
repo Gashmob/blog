@@ -1,0 +1,72 @@
+---
+import type { PostEntry } from "../content.config.ts";
+import { getCollection } from "astro:content";
+
+export interface Props {
+    post: PostEntry;
+}
+
+const { post } = Astro.props;
+
+const posts: PostEntry[] = await getCollection("posts");
+const related_posts: PostEntry[] = posts
+    .filter((entry) => entry.data.story === post.data.story)
+    .sort((a: PostEntry, b: PostEntry) => a.data.date.getTime() - b.data.date.getTime());
+
+const index = related_posts.findIndex((entry) => entry.data.slug === post.data.slug);
+const previous: PostEntry | null = index > 0 ? related_posts[index - 1] : null;
+const next = index < related_posts.length - 1 ? related_posts[index + 1] : null;
+---
+
+{
+    related_posts.length > 1 && (
+        <div class="mb-30 grid grid-cols-2 gap-8">
+            {previous !== null && (
+                <a
+                    href={`/post/${previous.data.slug}`}
+                    class="hover:bg-background-active hover:ring-font-secondary group ring-border animation shadow-shadow col-1 flex h-full flex-col gap-3 rounded-lg pb-3 shadow-md ring-2 select-none hover:shadow-none active:ring-0"
+                >
+                    <div class="mx-4 mt-2 flex gap-6">
+                        <div class="mt-1 flex">
+                            <div class="hidden group-hover:block">
+                                <i class="fa-solid fa-arrow-left text-font-secondary" />
+                            </div>
+                            <div class="group-hover:hidden">
+                                <i class="fa-solid fa-chevron-left animation" />
+                            </div>
+                        </div>
+                        <h3 class="group-hover:text-font-secondary animation animation self-start rounded-lg text-xl opacity-90 group-hover:font-semibold group-hover:tracking-wide">
+                            {previous.data.title}
+                        </h3>
+                    </div>
+                    <div class="mx-4">
+                        <p class="text-sm">{previous.data.description}</p>
+                    </div>
+                </a>
+            )}
+            {next !== null && (
+                <a
+                    href={`/post/${next.data.slug}`}
+                    class="hover:bg-background-active hover:ring-font-secondary group ring-border animation shadow-shadow col-2 flex h-full flex-col gap-3 rounded-lg pb-3 shadow-md ring-2 select-none hover:shadow-none active:ring-0"
+                >
+                    <div class="mx-4 mt-2 flex justify-between gap-6">
+                        <h3 class="group-hover:text-font-secondary animation animation self-start rounded-lg text-xl opacity-90 group-hover:font-semibold group-hover:tracking-wide">
+                            {next.data.title}
+                        </h3>
+                        <div class="mt-1 flex">
+                            <div class="hidden group-hover:block">
+                                <i class="fa-solid fa-arrow-right text-font-secondary" />
+                            </div>
+                            <div class="group-hover:hidden">
+                                <i class="fa-solid fa-chevron-right animation" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-4">
+                        <p class="text-sm">{next.data.description}</p>
+                    </div>
+                </a>
+            )}
+        </div>
+    )
+}

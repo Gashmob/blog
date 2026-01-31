@@ -35,18 +35,20 @@ export type Props = {
 };
 
 const { tag, posts } = Astro.props;
+
+const sorted_posts = posts.sort((a: PostEntry, b: PostEntry) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
 <BaseLayout title={`Tag ${tag}`} description={`Posts with tag "${tag}"`}>
     <h1 class="text-4xl">
         All posts with tag
         <span class="bg-background-secondary mx-1 rounded-lg px-3 pb-0.5">{tag}</span>
-        <small class="text-font-secondary text-2xl">({posts.length})</small>
+        <small class="text-font-secondary text-2xl">({sorted_posts.length})</small>
     </h1>
     <div class="my-8 flex justify-center">
         <div class="border-border w-4/5 border-b-2"></div>
     </div>
     <div class="mb-10 grid grid-cols-1 gap-5 lg:grid-cols-2">
-        {posts.map((post) => <PostCard post={post} />)}
+        {sorted_posts.map((post) => <PostCard post={post} />)}
     </div>
 </BaseLayout>
