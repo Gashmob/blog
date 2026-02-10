@@ -57,6 +57,7 @@
         }
         code {
             @apply bg-background-secondary text-font rounded-md px-2 py-0.5 font-mono text-base leading-relaxed;
+            font-variant-ligatures: none;
         }
 
         ol {
@@ -98,6 +99,10 @@
 
         hr {
             @apply border-border mx-13 mt-13 mb-3;
+        }
+
+        abbr {
+            @apply hover:cursor-help;
         }
     }
 }
