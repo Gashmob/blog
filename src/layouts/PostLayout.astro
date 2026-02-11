@@ -11,7 +11,13 @@ export interface Props {
 const { post } = Astro.props;
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} author={post.data.author} date={post.data.date}>
+<BaseLayout
+    slug={post.data.slug}
+    title={post.data.title}
+    description={post.data.description}
+    author={post.data.author}
+    date={post.data.date}
+>
     <article>
         <Title post={post} />
         <section class="markdown mb-30 font-sans">
