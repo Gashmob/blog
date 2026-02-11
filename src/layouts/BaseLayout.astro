@@ -8,13 +8,14 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
 export interface Props {
+    slug?: string;
     title?: string;
     description?: string;
     author?: string;
     date?: Date;
 }
 
-const { title, description, author, date } = Astro.props;
+const { slug, title, description, author, date } = Astro.props;
 const rss_url = new URL("rss.xml", Astro.site).href;
 ---
 
@@ -26,7 +27,7 @@ const rss_url = new URL("rss.xml", Astro.site).href;
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content={Astro.generator} />
 
-        <Seo {title} {description} {author} {date} />
+        <Seo {slug} {title} {description} {author} {date} />
 
         <link rel="icon" href="/favicon.ico" />
 

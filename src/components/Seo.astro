@@ -1,5 +1,6 @@
 ---
 export interface Props {
+    slug?: string;
     title?: string;
     description?: string;
     author?: string;
@@ -9,6 +10,7 @@ export interface Props {
 const site_name = "Keblo?";
 
 const {
+    slug = "main",
     title = site_name,
     description = "A collection of blog posts from Kevin Traini",
     author = "Kevin Traini",
@@ -26,7 +28,7 @@ const canonical_url = new URL(Astro.url.pathname, Astro.url);
 
 <meta property="og:title" content={title} />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="/opengraph.png" />
+<meta property="og:image" content={`/open-graph/${slug}.png`} />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:alt" content={description} />
 <meta property="og:url" content={canonical_url} />
