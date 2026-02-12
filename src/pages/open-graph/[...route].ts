@@ -54,12 +54,13 @@ export const { getStaticPaths, GET } = await OGImageRoute<PageData>({
         font: {
             title: {
                 color: [169, 173, 214],
-                families: ["Open Sans"],
+                families: ["Open Sans", "sans-serif"],
             },
             description: {
                 color: [100, 107, 180],
-                families: ["Open Sans"],
+                families: ["Open Sans", "sans-serif"],
             },
         },
+        fonts: ["src/fonts/open-sans-latin-400-normal.woff2"],
     }),
 });
