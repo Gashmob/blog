@@ -38,7 +38,7 @@ export const { getStaticPaths, GET } = await OGImageRoute<PageData>({
             description: "A collection of blog posts from Kevin Traini",
         },
     },
-    getImageOptions: (path, page) => ({
+    getImageOptions: (_path, page) => ({
         title: page.title,
         description: page.description,
         bgGradient: [[19, 20, 32]],
