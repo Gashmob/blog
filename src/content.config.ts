@@ -17,7 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 import { glob } from "astro/loaders";
-import { type CollectionEntry, defineCollection, z } from "astro:content";
+import { z } from "astro/zod";
+import { type CollectionEntry, defineCollection } from "astro:content";
 
 const posts = defineCollection({
     loader: glob({ pattern: "**/[^_]*.md", base: "./src/posts" }),
